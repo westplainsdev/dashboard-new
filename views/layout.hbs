@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="/styles/index.css">
+
+
+  <title>{{title}}</title>
+</head>
+
+<body>
+
+  <div class="topnav" id="myTopnav">
+    <span class="logo"><i class="fa fa-truck" aria-hidden="true"></i>&nbsp;Application</span>
+    <div class="topnav-right">
+      <a class="{{#if home}}active{{/if}}" href="/"><i class="fa fa-fw fa-home"></i> Home</a>
+      <div class="dropdown">
+        <button class="dropbtn">Dropdown&nbsp;<i class="fa fa-caret-down"></i>
+        </button>
+        <div class="dropdown-content">
+          <a href="/"> Home</a>
+          <a href="#">Link 2</a>
+          <a href="/about"> About</a>
+        </div>
+      </div>
+      <a href="#"><i class="fa fa-fw fa-envelope"></i> Contact</a>
+      <a href="#"><i class="fa fa-fw fa-user"></i> Login</a>
+      <div class="dropdown">
+        <button class="dropbtn">Dropdown&nbsp;<i class="fa fa-caret-down"></i>
+        </button>
+        <div class="dropdown-content">
+          <a href="/"> Home</a>
+          <a href="#">Link 2</a>
+          <a href="/about"> About</a>
+        </div>
+      </div>
+      <a href="#"><i class="fa fa-fw fa-search"></i> Search</a>
+      <a href="/about" class="{{#if about}}active{{/if}}"><i class="fa fa-info-circle"></i> About</a>
+    </div>
+  </div>
+
+  <!-- Side navigation -->
+  <div class="sidenav">
+    <a href="#"><i class="fa fa-fw fa-home"></i> Customers</a>
+    <a href="#"><i class="fa fa-fw fa-user"></i> Products</a>
+    <a href="#"><i class="fa fa-fw fa-truck"></i> Orders</a>
+    <a href="#"><i class="fa fa-fw fa-map"></i> Tracking</a>
+
+    <button class="dropdown-btn">Configurations
+      <i class="fa fa-caret-down"></i>
+    </button>
+    <div class="dropdown-container">
+      <a href="#"><i class="fa fa-fw fa-cogs"></i> Link 1</a>
+      <a href="#"><i class="fa fa-fw fa-cogs"></i> Link 2</a>
+      <a href="#"><i class="fa fa-fw fa-cogs"></i> Link 3</a>
+    </div>
+  </div>
+
+  <!-- Page content -->
+  <div class="main">
+    {{{body}}}
+  </div>
+
+  <script>
+    /* Loop through all dropdown buttons to toggle between hiding and showing its dropdown content - 
+       This allows the user to have multiple dropdowns without any conflict */
+    var dropdown = document.getElementsByClassName("dropdown-btn");
+    var i;
+
+    for (i = 0; i < dropdown.length; i++) {
+      dropdown[i].addEventListener("click", function () {
+        this.classList.toggle("active");
+        var dropdownContent = this.nextElementSibling;
+        if (dropdownContent.style.display === "block") {
+          dropdownContent.style.display = "none";
+        } else {
+          dropdownContent.style.display = "block";
+        }
+      });
+    }
+  </script>
+</body>
+
+</html>
